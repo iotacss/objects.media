@@ -1,0 +1,166 @@
+// Media Object
+
+
+
+
+//  Dependencies:
+//    Settings.Default
+//    Tools.Mixin
+
+
+
+
+// Options
+
+$iota-media                 : true;
+$iota-media-gutter-default  : 10px  !default;
+$iota-media-gutter-extra    : ()    !default;
+$iota-media--rev            : false !default;
+$iota-media--res            : false !default;
+$iota-media-collapse-at     : 767px !default;
+$iota-media--table          : false !default;
+
+
+
+
+.#{$iota-object-namespace}media {
+  display: block;
+}
+
+.#{$iota-object-namespace}media:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+  .#{$iota-object-namespace}media__image {
+    margin-right: 10px;
+    float: left;
+
+    > img {
+      display: block;
+    }
+  }
+
+  .#{$iota-object-namespace}media__body {
+    overflow: hidden;
+    display: block;
+  }
+
+
+
+
+// Reversed Media Object
+
+@if ($iota-media--rev == true) {
+
+  .#{$iota-object-namespace}media--rev {
+
+    .#{$iota-object-namespace}media__image {
+      margin-left:  10px;
+      margin-right: 0;
+      float: right;
+    }
+
+  }
+
+}
+
+
+
+
+// Media Object Sizes
+
+@each $name, $size in $iota-media-gutter-extra {
+
+  .#{$iota-object-namespace}media--#{$name} {
+
+    .#{$iota-object-namespace}media__image {
+      margin-right: #{$size};
+    }
+
+  }
+
+  @if $iota-media--rev {
+
+    .#{$iota-object-namespace}media__image {
+      margin-left:  #{$size};
+      margin-right: 0;
+    }
+
+  }
+
+}
+
+
+
+
+// Table Media Object
+
+@if ($iota-media--table == true) {
+
+  .#{$iota-object-namespace}media--table {
+    display: table;
+    width: 100%;
+
+    .#{$iota-object-namespace}media__image,
+    .#{$iota-object-namespace}media__body {
+      display: table-cell;
+    }
+
+    .#{$iota-object-namespace}media__body {
+      width: 100%;
+    }
+
+  }
+
+}
+
+
+
+
+// Responsive Media Object
+
+@if ($iota-media--res == true) {
+
+  @media screen and ( max-width: $iota-media-collapse-at ) {
+
+    .#{$iota-object-namespace}media--res {
+
+      .#{$iota-object-namespace}media__image {
+        @include reset-media-object($iota-media-gutter-default);
+      }
+
+
+      // Media Object Table Reset
+
+      @if ($iota-media--table == true) {
+
+        &.#{$iota-object-namespace}media--table {
+        
+          .#{$iota-object-namespace}media__image,
+          .#{$iota-object-namespace}media__body {
+            display: block;
+          }
+
+        }
+      
+      }
+
+    }
+
+    @each $name, $size in $iota-media-gutter-extra {
+
+      .#{$iota-object-namespace}media--#{name} {
+
+        .#{$iota-object-namespace}media__image {
+          @include reset-media-object($iota-media-gutter-default);
+        }
+
+      }
+
+    }
+
+  }
+
+}
