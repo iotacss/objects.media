@@ -14,8 +14,8 @@
     "oocss"
   ],
   "dependencies": {
-    "iotacss-default": "0.1.0",
-    "iotacss-mixins": "0.1.0"
+    "iotacss-default": "^0.1.0",
+    "iotacss-mixin": "^0.1.0"
   },
   "author": "Dimitris Psaropoulos <info@harby.me>"
 }
