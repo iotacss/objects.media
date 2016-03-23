@@ -79,13 +79,17 @@ $iota-media--table          : false !default;
       margin-right: #{$size};
     }
 
-  }
+    @if $iota-media--rev {
+      
+      &.#{$iota-object-namespace}media--rev {
 
-  @if $iota-media--rev {
-
-    .#{$iota-object-namespace}media__image {
-      margin-left:  #{$size};
-      margin-right: 0;
+        .#{$iota-object-namespace}media__image {
+          margin-left:  #{$size};
+          margin-right: 0;
+        }
+        
+      }
+      
     }
 
   }
