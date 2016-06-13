@@ -1,6 +1,6 @@
 {
   "name": "iotacss-media",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Media object for iotaCSS",
   "main": "_objects.media.scss",
   "repository": {
