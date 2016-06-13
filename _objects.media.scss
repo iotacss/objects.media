@@ -34,7 +34,7 @@ $iota-media--table          : false !default;
 }
 
   .#{$iota-object-namespace}media__image {
-    margin-right: 10px;
+    margin-right: $iota-media-gutter-default;
     float: left;
 
     > img {
@@ -57,7 +57,7 @@ $iota-media--table          : false !default;
   .#{$iota-object-namespace}media--rev {
 
     .#{$iota-object-namespace}media__image {
-      margin-left:  10px;
+      margin-left:  $iota-media-gutter-default;
       margin-right: 0;
       float: right;
     }
