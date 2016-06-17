@@ -151,15 +151,15 @@ $iota-media--table          : false !default;
         }
       
       }
+      
+      @each $name, $size in $iota-media-gutter-extra {
 
-    }
+        &.#{$iota-object-namespace}media--#{$name} {
 
-    @each $name, $size in $iota-media-gutter-extra {
+          & > .#{$iota-object-namespace}media__image {
+            margin-bottom: $size;
+          }
 
-      .#{$iota-object-namespace}media--#{$name} {
-
-        & > .#{$iota-object-namespace}media__image {
-          @include reset-media-object($iota-media-gutter-default);
         }
 
       }
