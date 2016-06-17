@@ -32,8 +32,10 @@ $iota-media--table         : false !default;  // Allows vertical positioning of 
 
 ```
 .o-media
-  .o-media__image
-  .o-media__body
+  .o-media__fixed
+  .o-media__fluid
+
+  // .o-media__image and .o-media__body still supported, but please use o-media__fixed and o-media__fluid instead
 
 
 // Modifiers
