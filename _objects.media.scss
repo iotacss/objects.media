@@ -31,9 +31,8 @@ $iota-media--table          : false !default;
   content: "";
   display: table;
   clear: both;
-}
 
-  .#{$iota-object-namespace}media__image {
+  & > .#{$iota-object-namespace}media__image {
     margin-right: $iota-media-gutter-default;
     float: left;
 
@@ -42,10 +41,12 @@ $iota-media--table          : false !default;
     }
   }
 
-  .#{$iota-object-namespace}media__body {
+  & > .#{$iota-object-namespace}media__body {
     overflow: hidden;
     display: block;
   }
+  
+}
 
 
 
@@ -56,7 +57,7 @@ $iota-media--table          : false !default;
 
   .#{$iota-object-namespace}media--rev {
 
-    .#{$iota-object-namespace}media__image {
+    & > .#{$iota-object-namespace}media__image {
       margin-left:  $iota-media-gutter-default;
       margin-right: 0;
       float: right;
@@ -75,7 +76,7 @@ $iota-media--table          : false !default;
 
   .#{$iota-object-namespace}media--#{$name} {
 
-    .#{$iota-object-namespace}media__image {
+    & > .#{$iota-object-namespace}media__image {
       margin-right: #{$size};
     }
 
@@ -83,7 +84,7 @@ $iota-media--table          : false !default;
       
       &.#{$iota-object-namespace}media--rev {
 
-        .#{$iota-object-namespace}media__image {
+        & > .#{$iota-object-namespace}media__image {
           margin-left:  #{$size};
           margin-right: 0;
         }
@@ -107,12 +108,12 @@ $iota-media--table          : false !default;
     display: table;
     width: 100%;
 
-    .#{$iota-object-namespace}media__image,
-    .#{$iota-object-namespace}media__body {
+    & > .#{$iota-object-namespace}media__image,
+    & > .#{$iota-object-namespace}media__body {
       display: table-cell;
     }
 
-    .#{$iota-object-namespace}media__body {
+    & > .#{$iota-object-namespace}media__body {
       width: 100%;
     }
 
@@ -131,7 +132,7 @@ $iota-media--table          : false !default;
 
     .#{$iota-object-namespace}media--res {
 
-      .#{$iota-object-namespace}media__image {
+      & > .#{$iota-object-namespace}media__image {
         @include reset-media-object($iota-media-gutter-default);
       }
 
@@ -142,8 +143,8 @@ $iota-media--table          : false !default;
 
         &.#{$iota-object-namespace}media--table {
         
-          .#{$iota-object-namespace}media__image,
-          .#{$iota-object-namespace}media__body {
+          & > .#{$iota-object-namespace}media__image,
+          & > .#{$iota-object-namespace}media__body {
             display: block;
           }
 
@@ -155,9 +156,9 @@ $iota-media--table          : false !default;
 
     @each $name, $size in $iota-media-gutter-extra {
 
-      .#{$iota-object-namespace}media--#{name} {
+      .#{$iota-object-namespace}media--#{$name} {
 
-        .#{$iota-object-namespace}media__image {
+        & > .#{$iota-object-namespace}media__image {
           @include reset-media-object($iota-media-gutter-default);
         }
 
