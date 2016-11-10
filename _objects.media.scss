@@ -3,126 +3,173 @@
 
 
 
-//  Dependencies:
-//    Settings.Default
-//    Tools.Mixin
-
-
-
-
 // Options
 
-$iota-media                 : true;
-$iota-media-gutter-default  : 10px  !default;
-$iota-media-gutter-extra    : ()    !default;
-$iota-media--rev            : false !default;
-$iota-media--res            : false !default;
-$iota-media-collapse-at     : 767px !default;
-$iota-media--table          : false !default;
+$iota-objs-media                   : true;
+
+$iota-objs-media-namespace         : 'media' !default;
+$iota-objs-media-fixed-name        : 'fixed' !default;
+$iota-objs-media-fluid-name        : 'fluid' !default;
+$iota-objs-media-reversed-name     : 'rev' !default;
+$iota-objs-media-align-middle-name : 'middle' !default;
+$iota-objs-media-align-bottom-name : 'bottom' !default;
+$iota-objs-media-responsive-name   : 'res' !default;
+
+$iota-objs-media-gutter-default    : $iota-global-gutter-default !default;
+$iota-objs-media-gutter-extra      : () !default;
+
+$iota-objs-media-rev               : false !default;
+
+$iota-objs-media-align             : false !default;
+
+$iota-objs-media-flex              : $iota-global-flex !default;
+
+$iota-objs-media-res               : false !default;
+$iota-objs-media-collapse-at       : 767px !default;
 
 
 
 
-.#{$iota-object-namespace}media {
-  display: block;
+$iota-objs-media-var-media       : $iota-global-objects-namespace + $iota-objs-media-namespace;
+$iota-objs-media-var-media-mod   : $iota-objs-media-var-media + "--";
+$iota-objs-media-var-media-fixed : $iota-objs-media-var-media + "__" + $iota-objs-media-fixed-name;
+$iota-objs-media-var-media-fluid : $iota-objs-media-var-media + "__" + $iota-objs-media-fluid-name;
 
-  & > .#{$iota-object-namespace}media__image,
-  & > .#{$iota-object-namespace}media__fixed {
-    margin-right: $iota-media-gutter-default;
-    float: left;
 
-    > img {
-      display: block;
+
+
+// Flex Media Object
+
+@if ($iota-objs-media-flex == true) {
+
+  .#{$iota-objs-media-var-media} {
+    display: flex;
+    align-items: flex-start;
+
+    & > .#{$iota-objs-media-var-media-fixed} {
+      @include _iota-generate-unit('padding-right', $iota-objs-media-gutter-default);
+    }
+
+    & > .#{$iota-objs-media-var-media-fluid} {
+      flex: 1;
     }
   }
 
-  & > .#{$iota-object-namespace}media__body,
-  & > .#{$iota-object-namespace}media__fluid {
-    overflow: hidden;
-    display: block;
-  }
-  
-}
-
-.#{$iota-object-namespace}media:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 
 
+  // Flex Media Object Reversed
 
-// Reversed Media Object
+  @if ($iota-objs-media-rev == true) {
 
-@if ($iota-media--rev == true) {
+    .#{$iota-objs-media-var-media-mod + $iota-objs-media-reversed-name} {
 
-  .#{$iota-object-namespace}media--rev {
-
-    & > .#{$iota-object-namespace}media__image,
-    & > .#{$iota-object-namespace}media__fixed {
-      margin-left:  $iota-media-gutter-default;
-      margin-right: 0;
-      float: right;
-    }
-
-  }
-
-}
-
-
-
-
-// Media Object Sizes
-
-@each $name, $size in $iota-media-gutter-extra {
-
-  .#{$iota-object-namespace}media--#{$name} {
-
-    & > .#{$iota-object-namespace}media__image,
-    & > .#{$iota-object-namespace}media__fixed {
-      margin-right: #{$size};
-    }
-
-    @if $iota-media--rev {
-      
-      &.#{$iota-object-namespace}media--rev {
-
-        & > .#{$iota-object-namespace}media__image,
-        & > .#{$iota-object-namespace}media__fixed {
-          margin-left:  #{$size};
-          margin-right: 0;
-        }
-        
+      & > .#{$iota-objs-media-var-media-fixed} {
+        padding-right: 0;
+        @include _iota-generate-unit('padding-left', $iota-objs-media-gutter-default);
+        order: 1;
       }
-      
+
     }
 
   }
 
-}
+
+
+
+  // Media Object Align
+
+  @if ($iota-objs-media-align == true) {
+
+    .#{$iota-objs-media-var-media-mod + $iota-objs-media-align-middle-name} {
+      align-items: center;
+    }
+
+    .#{$iota-objs-media-var-media-mod + $iota-objs-media-align-bottom-name} {
+      align-items: flex-end;
+    }
+
+  }
 
 
 
 
-// Table Media Object
+// Media Object
 
-@if ($iota-media--table == true) {
+} @else {
 
-  .#{$iota-object-namespace}media--table {
+  .#{$iota-objs-media-var-media} {
     display: table;
     width: 100%;
 
-    & > .#{$iota-object-namespace}media__image,
-    & > .#{$iota-object-namespace}media__fixed,
-    & > .#{$iota-object-namespace}media__body,
-    & > .#{$iota-object-namespace}media__fluid {
+    & > .#{$iota-objs-media-var-media-fixed},
+    & > .#{$iota-objs-media-var-media-fluid} {
       display: table-cell;
     }
 
-    & > .#{$iota-object-namespace}media__body,
-    & > .#{$iota-object-namespace}media__fluid {
-      width: 100%;
+    & > .#{$iota-objs-media-var-media-fixed} {
+      width: 1px;
+      @include _iota-generate-unit('padding-right', $iota-objs-media-gutter-default);
+
+      > img {
+        max-width: none;
+      }
+    }
+
+    & > .#{$iota-objs-media-var-media-fluid} {
+      width: auto;
+
+      &,
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+
+
+
+  // Media Object Reserved
+
+  @if ($iota-objs-media-rev == true) { 
+
+    .#{$iota-objs-media-var-media-mod + $iota-objs-media-reversed-name} {
+      direction: rtl;
+
+      & > .#{$iota-objs-media-var-media-fixed},
+      & > .#{$iota-objs-media-var-media-fluid} {
+        direction: ltr;
+      }
+
+      & > .#{$iota-objs-media-var-media-fixed} {
+        padding-right: 0;
+        @include _iota-generate-unit('padding-left', $iota-objs-media-gutter-default);
+      }
+    }
+
+  }
+
+
+
+
+  // Media Object Align
+
+  @if ($iota-objs-media-align == true) {
+
+    .#{$iota-objs-media-var-media-mod + $iota-objs-media-align-middle-name} {
+
+      & > .#{$iota-objs-media-var-media-fixed},
+      & > .#{$iota-objs-media-var-media-fluid} {
+        vertical-align: middle;
+      }
+    }
+
+    .#{$iota-objs-media-var-media-mod + $iota-objs-media-align-bottom-name} {
+
+      & > .#{$iota-objs-media-var-media-fixed},
+      & > .#{$iota-objs-media-var-media-fluid} {
+        vertical-align: bottom;
+      }
     }
 
   }
@@ -134,42 +181,60 @@ $iota-media--table          : false !default;
 
 // Responsive Media Object
 
-@if ($iota-media--res == true) {
+@if ($iota-objs-media-res == true) {
 
-  @media screen and ( max-width: $iota-media-collapse-at ) {
+  @media screen and ( max-width: $iota-objs-media-collapse-at ) {
 
-    .#{$iota-object-namespace}media--res {
+    .#{$iota-objs-media-var-media-mod + $iota-objs-media-responsive-name} {
+      display: block;
 
-      & > .#{$iota-object-namespace}media__image,
-      & > .#{$iota-object-namespace}media__fixed {
-        @include reset-media-object($iota-media-gutter-default);
+      & > .#{$iota-objs-media-var-media-fixed},
+      & > .#{$iota-objs-media-var-media-fluid} {
+        display: block;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
       }
 
-
-      // Media Object Table Reset
-
-      @if ($iota-media--table == true) {
-
-        &.#{$iota-object-namespace}media--table {
-        
-          & > .#{$iota-object-namespace}media__image,
-          & > .#{$iota-object-namespace}media__fixed,
-          & > .#{$iota-object-namespace}media__body,
-          & > .#{$iota-object-namespace}media__fluid {
-            display: block;
-          }
-
-        }
-      
+      & > .#{$iota-objs-media-var-media-fixed} {
+        @include _iota-generate-unit('margin-bottom', $iota-objs-media-gutter-default);
       }
-      
-      @each $name, $size in $iota-media-gutter-extra {
 
-        &.#{$iota-object-namespace}media--#{$name} {
+    }
 
-          & > .#{$iota-object-namespace}media__image,
-          & > .#{$iota-object-namespace}media__fixed {
-            margin-bottom: $size;
+  }
+
+}
+
+
+
+
+// Media Object Sizes
+
+@each $media-gutter-name, $media-gutter-size in $iota-objs-media-gutter-extra {
+
+  .#{$iota-objs-media-var-media-mod + $media-gutter-name} {
+
+    & > .#{$iota-objs-media-var-media-fixed} {
+      @include _iota-generate-unit('padding-right', $media-gutter-size);
+    }
+
+
+
+
+    // Media Object Responsive
+
+    @if ($iota-objs-media-res == true) {
+
+      @media screen and ( max-width: $iota-objs-media-collapse-at ) {
+
+        &.#{$iota-objs-media-var-media-mod + $iota-objs-media-responsive-name} {
+          display: block;
+
+          & > .#{$iota-objs-media-var-media-fixed} {
+            padding-right: 0;
+            padding-left: 0;
+            @include _iota-generate-unit('margin-bottom', $media-gutter-size);
           }
 
         }

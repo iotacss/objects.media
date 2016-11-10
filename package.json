@@ -1,6 +1,6 @@
 {
-  "name": "iotacss-media",
-  "version": "0.1.5",
+  "name": "iotacss-objs-media",
+  "version": "1.0.0",
   "description": "Media object for iotaCSS",
   "main": "_objects.media.scss",
   "repository": {
@@ -10,12 +10,9 @@
   "keywords": [
     "iotacss",
     "css",
+    "sass",
     "bem",
     "oocss"
   ],
-  "dependencies": {
-    "iotacss-default": "^0.1.0",
-    "iotacss-mixin": "^0.1.0"
-  },
   "author": "Dimitris Psaropoulos <info@harby.me>"
 }
