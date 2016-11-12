@@ -6,32 +6,32 @@ The media object is an improved version of [@stubbornella's](https://twitter.com
 ### Installation ###
 
 ```
-npm install --save iotacss-obj-media
+npm install --save iotacss-objs-media
 ```
 
 
 ### Options ###
 
 ```sass
-$iota-obj-media-namespace         : 'media' !default;
-$iota-obj-media-fixed-name        : 'fixed' !default;
-$iota-obj-media-fluid-name        : 'fluid' !default;
-$iota-obj-media-reversed-name     : 'rev' !default;
-$iota-obj-media-align-middle-name : 'middle' !default;
-$iota-obj-media-align-bottom-name : 'bottom' !default;
-$iota-obj-media-responsive-name   : 'res' !default;
+$iota-objs-media-namespace         : 'media' !default;
+$iota-objs-media-fixed-name        : 'fixed' !default;
+$iota-objs-media-fluid-name        : 'fluid' !default;
+$iota-objs-media-reversed-name     : 'rev' !default;
+$iota-objs-media-align-middle-name : 'middle' !default;
+$iota-objs-media-align-bottom-name : 'bottom' !default;
+$iota-objs-media-responsive-name   : 'res' !default;
 
-$iota-obj-media-gutter-default    : $iota-global-gutter-default !default;
-$iota-obj-media-gutter-extra      : () !default;
+$iota-objs-media-gutter-default    : $iota-global-gutter-default !default;
+$iota-objs-media-gutter-extra      : () !default;
 
-$iota-obj-media-rev               : false !default;
+$iota-objs-media-rev               : false !default;
 
-$iota-obj-media-align             : false !default;
+$iota-objs-media-align             : false !default;
 
-$iota-obj-media-flex              : $iota-global-flex !default;
+$iota-objs-media-flex              : $iota-global-flex !default;
 
-$iota-obj-media-res               : false !default;
-$iota-obj-media-collapse-at       : 767px !default;
+$iota-objs-media-res               : false !default;
+$iota-objs-media-collapse-at       : 767px !default;
 ```
 
 
