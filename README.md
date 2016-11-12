@@ -47,7 +47,8 @@ $iota-objs-media-collapse-at       : 767px !default;
 
 .o-media--rev
 .o-media--res
-.o-media--table
+.o-media--middle
+.o-media--bottom
 
 
 // Extra gutter sizes
