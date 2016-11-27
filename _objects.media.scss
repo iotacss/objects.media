@@ -47,7 +47,7 @@ $iota-objs-media-var-media-fluid : $iota-objs-media-var-media + "__" + $iota-obj
     align-items: flex-start;
 
     & > .#{$iota-objs-media-var-media-fixed} {
-      @include _iota-generate-unit('padding-right', $iota-objs-media-gutter-default);
+      @include _iota-generate-unit('padding', 'right', $iota-objs-media-gutter-default);
     }
 
     & > .#{$iota-objs-media-var-media-fluid} {
@@ -65,8 +65,8 @@ $iota-objs-media-var-media-fluid : $iota-objs-media-var-media + "__" + $iota-obj
     .#{$iota-objs-media-var-media-mod + $iota-objs-media-reversed-name} {
 
       & > .#{$iota-objs-media-var-media-fixed} {
-        padding-right: 0;
-        @include _iota-generate-unit('padding-left', $iota-objs-media-gutter-default);
+        @include _iota-generate-unit('padding', 'right', 0);
+        @include _iota-generate-unit('padding', 'left', $iota-objs-media-gutter-default);
         order: 1;
       }
 
@@ -109,7 +109,7 @@ $iota-objs-media-var-media-fluid : $iota-objs-media-var-media + "__" + $iota-obj
 
     & > .#{$iota-objs-media-var-media-fixed} {
       width: 1px;
-      @include _iota-generate-unit('padding-right', $iota-objs-media-gutter-default);
+      @include _iota-generate-unit('padding', 'right', $iota-objs-media-gutter-default);
 
       > img {
         max-width: none;
@@ -134,16 +134,16 @@ $iota-objs-media-var-media-fluid : $iota-objs-media-var-media + "__" + $iota-obj
   @if ($iota-objs-media-rev == true) { 
 
     .#{$iota-objs-media-var-media-mod + $iota-objs-media-reversed-name} {
-      direction: rtl;
+      @include _iota-direction-property('direction', 'rtl', false);
 
       & > .#{$iota-objs-media-var-media-fixed},
       & > .#{$iota-objs-media-var-media-fluid} {
-        direction: ltr;
+        @include _iota-direction-property('direction', 'ltr', false);
       }
 
       & > .#{$iota-objs-media-var-media-fixed} {
-        padding-right: 0;
-        @include _iota-generate-unit('padding-left', $iota-objs-media-gutter-default);
+        @include _iota-generate-unit('padding', 'right', 0);
+        @include _iota-generate-unit('padding', 'left', $iota-objs-media-gutter-default);
       }
     }
 
@@ -197,7 +197,7 @@ $iota-objs-media-var-media-fluid : $iota-objs-media-var-media + "__" + $iota-obj
       }
 
       & > .#{$iota-objs-media-var-media-fixed} {
-        @include _iota-generate-unit('margin-bottom', $iota-objs-media-gutter-default);
+        @include _iota-generate-unit('margin', 'bottom', $iota-objs-media-gutter-default);
       }
 
     }
@@ -216,7 +216,7 @@ $iota-objs-media-var-media-fluid : $iota-objs-media-var-media + "__" + $iota-obj
   .#{$iota-objs-media-var-media-mod + $media-gutter-name} {
 
     & > .#{$iota-objs-media-var-media-fixed} {
-      @include _iota-generate-unit('padding-right', $media-gutter-size);
+      @include _iota-generate-unit('padding', 'right', $media-gutter-size);
     }
 
 
@@ -234,7 +234,7 @@ $iota-objs-media-var-media-fluid : $iota-objs-media-var-media + "__" + $iota-obj
           & > .#{$iota-objs-media-var-media-fixed} {
             padding-right: 0;
             padding-left: 0;
-            @include _iota-generate-unit('margin-bottom', $media-gutter-size);
+            @include _iota-generate-unit('margin', 'bottom', $media-gutter-size);
           }
 
         }
