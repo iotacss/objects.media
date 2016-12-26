@@ -17,8 +17,8 @@ $iota-objs-media-namespace            : 'media' !default;
 $iota-objs-media-fixed-name           : 'fixed' !default;
 $iota-objs-media-fluid-name           : 'fluid' !default;
 $iota-objs-media-reversed-name        : 'rev' !default;
-$iota-objs-media-aligned-middle-name  : 'middle' !default;
-$iota-objs-media-aligned-bottom-name  : 'bottom' !default;
+$iota-objs-media-align-middle-name    : 'middle' !default;
+$iota-objs-media-align-bottom-name    : 'bottom' !default;
 $iota-objs-media-responsive-name      : 'res' !default;
 
 $iota-objs-media-gutter-default       : $iota-global-gutter-default !default;
