@@ -243,6 +243,47 @@ $iota-objs-media-var-media-fluid : $iota-objs-media-var-media + "__" + $iota-obj
 
     }
 
+
+
+
+    // Media Object Reserved
+
+    @if ($iota-objs-media-rev == true) {
+
+
+      // Media Object Reserved with Extra Sizes
+
+      &.#{$iota-objs-media-var-media-mod + $iota-objs-media-reversed-name} {
+
+        @media screen and ( min-width: ( $iota-objs-media-collapse-at + 1 ) ) {
+
+          & > .#{$iota-objs-media-var-media-fixed} {
+            @include _iota-generate-unit('padding', 'right', 0);
+            @include _iota-generate-unit('padding', 'left', $media-gutter-size);
+          }
+
+        }
+
+      }
+
+
+      // Media Object Reserved and Responsive with Extra Sizes
+
+      &.#{$iota-objs-media-var-media-mod + $iota-objs-media-reversed-name + ':not(.' + $iota-objs-media-var-media-mod + $iota-objs-media-responsive-name + ')'} {
+
+        @media screen and ( max-width: $iota-objs-media-collapse-at ) {
+
+          & > .#{$iota-objs-media-var-media-fixed} {
+            @include _iota-generate-unit('padding', 'right', 0);
+            @include _iota-generate-unit('padding', 'left', $media-gutter-size);
+          }
+
+        }
+
+      }
+
+    }
+
   }
 
 }
