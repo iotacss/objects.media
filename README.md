@@ -1,3 +1,5 @@
+**iotaCSS is now a monorepo and all individual repositories are part of it. Please open issues or PRs here: [https://github.com/iotacss/iotacss](https://github.com/iotacss/iotacss).**
+
 # Media Object #
 
 The media object is an improved version of [@stubbornella's](https://twitter.com/stubbornella) media object.
